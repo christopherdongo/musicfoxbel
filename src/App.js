@@ -5,12 +5,11 @@ import { GlobalSoundState } from "./context/SoundState";
 
 /*componenetes*/
 import Catalogo from "./components/catalago/catalogo";
-import Section from './components/section/section';
-import Reproductor from './components/reproductor/reproductor'
-import Float from './components/float'
+import Section from "./components/section/section";
+import Reproductor from "./components/reproductor/reproductor";
+import Float from "./components/float";
 /*media querys*/
-import {device} from './mediaquery/device'
-
+import { device } from "./mediaquery/device";
 
 const Global = createGlobalStyle`
     *,::after, ::before{
@@ -38,27 +37,27 @@ html {
 `;
 
 const ContainerPrincipal = styled.main`
- display:grid;
- grid-template-columns: 1% 1fr;
- 
- @media ${device.tabletL}{
-  grid-template-columns:330px 1fr;
- }
-`
+  display: grid;
+  grid-template-columns: 1% 1fr;
+
+  @media ${device.tabletL} {
+    grid-template-columns: 330px 1fr;
+  }
+`;
 
 function App() {
   return (
     <>
-    <GlobalSoundState>
-      <Global />
-      <ContainerPrincipal>
-        <Catalogo />
-        <Float />
-        <Section />
-        <Reproductor />
-      </ContainerPrincipal>
-    </GlobalSoundState>
-   </>
+      <GlobalSoundState>
+        <Global />
+        <ContainerPrincipal>
+          <Catalogo />
+          <Float />
+          <Section />
+          <Reproductor />
+        </ContainerPrincipal>
+      </GlobalSoundState>
+    </>
   );
 }
 

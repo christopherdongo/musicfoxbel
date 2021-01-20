@@ -37,21 +37,16 @@ export const Input = styled.input`
   padding-left: 16px;
   line-height: 22.5px;
 
-  ::placeholder {
+  :placeholder {
     padding-left: 0px;
     color: #bdbdbd;
+    background-color:red;
     line-height: 22px;
     font-weight: 400;
     display:flex;
     justify-content:center;
     align-items:center;
   }
-  :-moz-placeholder{
-    padding-top:0px;
-    background:color;
-  }
-  
-
   @media ${device.desktopL} {
     max-width: 524px;
   }

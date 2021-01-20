@@ -76,7 +76,6 @@ export const ContainerControls = styled.div`
     gap: 24.8px;
     height:100px;
   }
-
 `;
 export const Button = styled.span`
   display: flex;
@@ -106,23 +105,19 @@ export const ContainerVolumen = styled.div`
 
 export const InputVol = styled.input`
   cursor: pointer;
-
-  input[type="range"] {
-    margin-top: 47px;
     -webkit-appearance: none;
     width: 100px;
     height: 6px;
     outline: none;
     background: #ffff;
     border-radius: 20px;
-  }
-
-  input[type="range"]::-webkit-slider-thumb {
+  
+  ::-webkit-slider-thumb {
     -webkit-appearance: none;
     border-radius: 20px;
     appearance: none;
     width: 20px;
-    height: 60px;
+    height: 20px;
     background: #ffff;
     cursor: pointer;
   }
