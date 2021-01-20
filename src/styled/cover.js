@@ -25,7 +25,7 @@ export const Divcover1 = styled.div`
   justify-content: center;
   align-items: center;
   @media ${device.tabletL}{
-    
+     width:250px;
   }
 `;
 export const Divcover2 = styled.div`

@@ -16,12 +16,13 @@ const Song = () => {
   const { play, volumen, repro, ADDrepro } = soundContext;
 
   const audio = useRef("audio_tag");
-  
+
+
   useEffect( ()=>{
-        if(play){
-          audio.current.play();
-        }
-  }, [play])
+    if(play){
+      audio.current.play();
+    }
+}, [play])
 
     useEffect(()=>{
        if(volumen){
@@ -48,7 +49,7 @@ const Song = () => {
           type="audio/mpeg"
           preload="true"
           src={play.preview}
-          
+          autoPlay="" 
         />
       </div>
       <ButtonPrev>

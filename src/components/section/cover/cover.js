@@ -42,7 +42,7 @@ const Cover = () => {
   return (
     <Container>
       <Divcover1>
-        <Imgcover1 src={`http://e-cdn-images.deezer.com/images/cover/1a5f34fb1ce5ebad0557c06d90edba5c/500x500-000000-80-0-0.jpg` || cover_big} alr="cover" />
+        <Imgcover1 src={`https://cdns-images.dzcdn.net/images/cover/1a5f34fb1ce5ebad0557c06d90edba5c/1000x1000-000000-80-0-0.jpg` || cover_big} alr="cover" />
         <Iconplay src={play} alt="play" />
       </Divcover1>
       <Divcover2>
