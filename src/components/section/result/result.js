@@ -1,17 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, lazy, Suspense } from "react";
 
 /*componentes*/
-import Card from "./card";
 import { Container, TitleResult, DivCard} from "../../../styled/result";
-import Spinner from "../../../spinner/spinner";
+import Spinner from '../../../spinner/spinner'
 
 /*context*/
 import SoundContext from "../../../context/SoundContext";
+
+const OtherComponent = lazy( () => import('./card'))
 
 const Result = () => {
   /*context*/
   const soundContext = useContext(SoundContext);
   const { sound, loading} = soundContext;
+
   return (
     <>
 
@@ -21,11 +23,12 @@ const Result = () => {
           {
             loading? <Spinner /> 
             :
-            
             <DivCard>
-              
             {sound.map((item, index) => (
-              <Card key={index} item={item} />
+             <Suspense fallback={<Spinner />}>
+              <OtherComponent key={index} item={item} />
+              </Suspense>
+              
             ))}
           </DivCard>
           }

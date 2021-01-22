@@ -30,7 +30,7 @@ const Card = ({ item }) => {
   return (
     <Cardartist>
       <Containerimg>
-        <ImgArtist src={album.cover_xl} />
+        <ImgArtist src={album.cover_xl}  al={album.name}/>
         <Iconplay src={play} alt="play" onClick={()=>hanlderPlay(id)}/>
       </Containerimg>
       <TitleSong>{title}</TitleSong>

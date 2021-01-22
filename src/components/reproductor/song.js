@@ -17,7 +17,6 @@ const Song = () => {
 
   const audio = useRef("audio_tag");
 
-
   useEffect( ()=>{
     if(play){
       audio.current.play();
