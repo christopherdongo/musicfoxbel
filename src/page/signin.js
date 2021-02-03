@@ -1,12 +1,12 @@
 import React from 'react';
 
 
-const Music =()=>{
-
+const Signin =()=>{
+    
     return(
         <>
         </>
     )
 }
 
-export default Music;
+export default Signin;

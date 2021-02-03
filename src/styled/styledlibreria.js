@@ -46,11 +46,9 @@ export const Linkdiv = styled.a`
   height:28px;
   z-index:2000;
   position:absolute;
-
 }
-
-
 `
+
 export const TitleLibreria = styled.h1`
   font-size:22px;
   color:#FFFFFF;

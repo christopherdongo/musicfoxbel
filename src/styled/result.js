@@ -21,7 +21,6 @@ export const TitleResult= styled.h1`
   font-weight:700;
   color:#E86060;
   font-weight:bold;
-  
 `
 
 export const DivCard=styled.div`
@@ -47,7 +46,6 @@ export const Cardartist = styled.article`
 @media ${device.tablet}{
   height:186px;
 }
-
 `
 export const ImgArtist = styled.img`
  display:block;

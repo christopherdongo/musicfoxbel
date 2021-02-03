@@ -1,12 +1,11 @@
 import React from 'react';
 
 
-const Music =()=>{
-
+const Home =()=>{
     return(
         <>
         </>
     )
 }
 
-export default Music;
+export default Home

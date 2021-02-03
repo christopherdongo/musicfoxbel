@@ -1,7 +1,6 @@
 import React from 'react';
 
-
-const Music =()=>{
+const FormSignup =()=>{
 
     return(
         <>
@@ -9,4 +8,4 @@ const Music =()=>{
     )
 }
 
-export default Music;
+export default FormSignup;
