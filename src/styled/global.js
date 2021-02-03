@@ -26,10 +26,13 @@ html {
    }
 `;
 export const ContainerPrincipal = styled.main`
+position:relative;
   display: grid;
-  grid-template-columns: 1% 1fr;
+  grid-template-columns: 1fr;
 
-  @media ${device.tabletL} {
+  @media screen and (min-width:992px) {
     grid-template-columns: 330px 1fr;
   }
+
+  
 `;

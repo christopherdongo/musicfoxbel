@@ -25,7 +25,7 @@ const Result = () => {
             :
             <DivCard>
             {sound.map((item, index) => (
-             <Suspense fallback={<Spinner />}>
+             <Suspense key={index} fallback={<Spinner />}>
               <OtherComponent key={index} item={item} />
               </Suspense>
               

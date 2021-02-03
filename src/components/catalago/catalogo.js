@@ -8,6 +8,7 @@ import Libreria from './liberia'
 import Playlist from './playlist'
 
 const DivAside = styled.aside`
+position:absolute;
   width: 330px;
   background: #662323;
   min-height:100vh;
@@ -22,6 +23,7 @@ const DivAside = styled.aside`
     transition: all 0.5s ease-in-out;
   }
   @media ${device.tabletL}{
+    position:relative;
     transform:translateX(0px);
     width: 330px;
     transition: all 0.5s ease-in-out;
