@@ -30,7 +30,7 @@ position:relative;
   display: grid;
   grid-template-columns: 1fr;
 
-  @media screen and (min-width:992px) {
+  @media ${device.tabletL} {
     grid-template-columns: 330px 1fr;
   }
 

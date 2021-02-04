@@ -1,6 +1,5 @@
 import React from "react";
 /*react-router-dom*/ 
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 /*context global*/
 import { GlobalSoundState } from "./context/SoundState";
 /*styled global*/ 

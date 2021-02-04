@@ -30,8 +30,34 @@ export const DivCard=styled.div`
      place-items:center;
      padding-top:30px;
      gap:20px;
- @media ${device.tablet}{  
- }
+
+  @media screen and (min-width:377px) and (max-width:557px){
+    article:nth-child(25){
+      grid-column:1/3;
+    }
+  }
+  @media screen and (min-width:558px) and (max-width:737px){
+    article:nth-child(25){
+      grid-column:1/4;
+    }
+  }
+  @media screen and (min-width:738px) and (max-width:917px){
+    article:nth-child(25){
+      grid-column:1/5;
+    }
+  }
+  @media screen and (min-width:992px) and (max-width:1115px){
+    article:nth-child(25){
+      grid-column:1/4;
+    }
+  }
+  @media screen and (min-width:1115px) and (max-width:1295px){
+    article:nth-child(25){
+      grid-column:2/4;
+    }
+  }
+
+
 @media ${device.laptopL}{
     gap:40px;
 }
@@ -41,7 +67,6 @@ export const Cardartist = styled.article`
  width:160px;
 :hover{
     transform:scale(1.01);
-    opacity:0.7;
 }
 @media ${device.tablet}{
   height:186px;
@@ -73,15 +98,32 @@ position:relative;
  display:flex;
  justify-content:center;
  align-items:center;
+
+ :hover{
+    opacity:0.5;
+}
+
 `
 export const Iconplay = styled.img`
   position: absolute;
   cursor: pointer;
   width: 32px;
   height: 36px;
-  
   z-index:1000;
   :hover {
     transform: scale(1.2);
   }
 `;
+
+export const Menusong=styled.div`
+display:flex;
+align-items:flex-end;
+ position:absolute;
+ width:32px;
+ height:32px;
+ z-index:1;
+ padding-top:130px;
+ padding-left:100px;
+ cursor: pointer;
+
+`

@@ -18,7 +18,7 @@ const Result = () => {
     <>
 
           <Container>
-            { sound.length>=1 ? <TitleResult >Resultados</TitleResult> : null}
+            { sound.length>=0 ? <TitleResult >Resultados</TitleResult> : null}
            
           {
             loading? <Spinner /> 
