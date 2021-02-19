@@ -1,7 +1,6 @@
-import React, {useContext, useState} from "react";
+import React, {useContext} from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useHistory } from "react-router-dom";
 /*context*/
 import UserContext from '../../../context/user/UserContext'; 
 import {Error} from '../../../styled/form';
@@ -47,7 +46,7 @@ const FormSignup = () => {
             email:values.email,
             password:values.password
         }
-        if(values.password != values.repeatpassword){
+        if(values.password !== values.repeatpassword){
             console.log('password no son iguales')
         }
         UserRegister(data)

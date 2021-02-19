@@ -48,7 +48,7 @@ const FormSignin = () => {
     if (authenticate) {
       history.push("/");
     }
-  }, [authenticate, user]);
+  }, [authenticate, user, history]);
 
   //funcion clear
 

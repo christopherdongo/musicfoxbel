@@ -1,5 +1,4 @@
 import React, {useContext} from "react";
-import play from '../../../assets/play.svg'
 /*api context*/
 import SoundContext from '../../../context/sound/SoundContext'
 /**/
@@ -16,7 +15,6 @@ import {
   TitleSong,
   Artistep,
   Containerimg,
-  Iconplay,
   Menusong,
   Button
 } from "../../../styled/result";
@@ -41,10 +39,9 @@ const Card = ({ item }) => {
     <Cardartist>
       <Containerimg>
         <ImgArtist src={album.cover_xl}  al={album.name} />
-       {/* <Iconplay src={play} alt="play" onClick={()=>hanlderPlay(id)}/>*/}
        <Button >
          <FontAwesomeIcon 
-          icon={ repro && id == play.id? faPause : faPlay}
+          icon={ repro && id === play.id? faPause : faPlay}
             swapOpacity
             color="white"
             size="3x"
