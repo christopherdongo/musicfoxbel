@@ -19,16 +19,17 @@ import {
 /*context*/
 import SoundContext from '../../../context/sound/SoundContext'
 import UserContext from '../../../context/user/UserContext'
-//router
+/*router*/
 import {useHistory} from 'react-router-dom'
-
 const Form = () => {
   //user context
   const usercontext = useContext(UserContext);
-  const {user} = usercontext;
+  const {user, LogoutUser} = usercontext;
   //sound context
  const soundContext = useContext(SoundContext);
- const {SearchSound, SpinnerAdd} = soundContext;
+ const {SearchSound, SpinnerAdd,ClearSound } = soundContext;
+
+ const history = useHistory();
   //state
   const [inputSearch, setInputSearch] = useState();
 
@@ -37,15 +38,10 @@ const HandlerSubmit=(e)=>{
   SearchSound(inputSearch,false);
   SpinnerAdd(!false)
 }
-
-/*history*/
-const history = useHistory();
-
 /*cerrar sesion*/
 const LogoutSession =()=>{
- console.log('cerrar sesion')
- localStorage.removeItem('jwt');
- localStorage.removeItem('user');
+  LogoutUser();
+  ClearSound();
   history.push('/signin')
 }
 
@@ -62,7 +58,9 @@ return (
       </Divform>
       <Divusers>
         <Imguser src={Avatar} alt="user" />
-       <User>{user.name}</User> 
+       {
+         user? <User>{user.name}</User> : null
+       }
         
         <Logout>
           <FontAwesomeIcon 

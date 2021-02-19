@@ -4,7 +4,7 @@ import UserContext from './UserContext'
 /*reducer*/
 import UserReducer from './UserReducer' 
 /*types*/
-import {USER_LOGIN_SUCCESSFULL,USER_LOGIN_ERROR, USER_CREATE_SUCCESSFULL, USER_CREATE_ERROR} from '../../types/index' 
+import {USER_LOGIN_SUCCESSFULL,USER_LOGIN_ERROR, USER_CREATE_SUCCESSFULL, USER_CREATE_ERROR, USER_LOGOUT} from '../../types/index' 
 
 import ClienteAxios2 from '../../apis/service'
 
@@ -13,7 +13,6 @@ const initial_state={
     user:null || JSON.parse(localStorage.getItem('user')),
     favorite:null,
     message:null,
-    token: localStorage.getItem('jwt'),
     loading:true,
     authenticate:null
 }
@@ -62,7 +61,12 @@ export const GlobalUserState = ({children})=>{
                 payload:err.request.response
             })
         }
+    }
 
+    const LogoutUser =()=>{
+        dispatch({
+            type:USER_LOGOUT
+        })
     }
 
     return(
@@ -72,11 +76,11 @@ export const GlobalUserState = ({children})=>{
             favorite:state.favorite,
             message:state.message,
             loading:state.loading,
-            token:state.token,
             authenticate:state.authenticate,
              /*function*/
              FunctionLogin,
-             UserRegister
+             UserRegister,
+             LogoutUser
         }}>
            {children}
         </UserContext.Provider>

@@ -3,6 +3,7 @@ import {
   USER_LOGIN_SUCCESSFULL,
   USER_CREATE_ERROR,
   USER_CREATE_SUCCESSFULL,
+  USER_LOGOUT
 } from "../../types/index";
 
 // eslint-disable-next-line
@@ -29,6 +30,15 @@ export default (state, action) => {
         ...state,
         message: action.payload,
       };
+    case USER_LOGOUT:
+      localStorage.removeItem("jwt");
+      localStorage.removeItem("user");
+      return{
+        user: null,
+        authenticate: null,
+        message: null,
+        loading: false,
+      }
     default:
       return state;
   }

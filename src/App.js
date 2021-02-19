@@ -30,8 +30,8 @@ function App() {
              <Route exact path="/recovery" component={Recovery} />
              <RoutePrivate exact path="/" component={Home}/>
              <Route  component={Error} />
-    
           </Switch>
+          
         </Router>
       </GlobalSoundState>
       </GlobalUserState>

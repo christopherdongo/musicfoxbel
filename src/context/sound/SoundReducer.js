@@ -41,8 +41,17 @@ export default (state, action) => {
       };
     case CLEAR_SOUND_ARRAY:
       return {
+        ...state,
         sound: [],
+        error: null,
+        loading: false,
+        cover: [],
         play: [],
+        display: 'none',
+        volumen: null,
+        playing: false,
+        toogle:false,
+        repro:false
       };
     case DISPLAY_REPRODUCTOR_SUCCESSULL:
       return {
