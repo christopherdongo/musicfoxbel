@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 
 /*context*/
-import SoundContext from "../../../context/SoundContext";
+import SoundContext from "../../../context/sound/SoundContext";
 import play from "../../../assets/play.svg";
 import puntos from '../../../assets/puntos.svg'
 

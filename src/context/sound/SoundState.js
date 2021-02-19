@@ -18,9 +18,9 @@ import {
   SPINNER_ADD,
   CLEAR_SOUND_ARRAY,
   ADD_REPRO_OK
-} from "../types/index";
+} from "../../types/index";
 
-import clienteAxios from "../apis/apis";
+import clienteAxios from "../../apis/apis";
 
 const initial_state = {
   sound: [],
@@ -32,7 +32,6 @@ const initial_state = {
   volumen: null,
   playing: false,
   toogle:false,
-  pause:false,
   repro:false
 };
 export const GlobalSoundState = ({ children }) => {
@@ -141,7 +140,6 @@ export const GlobalSoundState = ({ children }) => {
         volumen: state.volumen,
         playing: state.playing,
         toogle:state.toogle,
-        pause:state.pause,
         repro:state.repro,
         //funciones
         AddCoverSound,

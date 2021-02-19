@@ -6,10 +6,9 @@ import Form from './header/form'
 import Cover from './cover/cover'
 import Result from './result/result'
 
-
 const Sectiondiv = styled.section`
      background:white;
-     height:84vh;
+     height:68vh;
      overflow-y:scroll;
      padding-right:0 !important;
      padding-left:0 !important;
@@ -20,7 +19,7 @@ const Sectiondiv = styled.section`
       -webkit-appearance: none;
     }
     ::-webkit-scrollbar:vertical {
-      width:5px;
+      width:0px;
     }
     ::-webkit-scrollbar-button:increment,::-webkit-scrollbar-button {
       display: none;
@@ -31,10 +30,10 @@ const Sectiondiv = styled.section`
     ::-webkit-scrollbar-thumb {
       background-color: #797979;
       border-radius: 20px;
-      border: 2px solid #f1f2f3;
+      border: 0px solid #f1f2f3;
     }
     ::-webkit-scrollbar-track {
-      border-radius: 10px;  
+      border-radius: 0px;  
     }
 
     @media ${device.tablet}{

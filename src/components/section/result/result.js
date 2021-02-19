@@ -5,7 +5,7 @@ import { Container, TitleResult, DivCard} from "../../../styled/result";
 import Spinner from '../../../spinner/spinner'
 
 /*context*/
-import SoundContext from "../../../context/SoundContext";
+import SoundContext from "../../../context/sound/SoundContext";
 
 const OtherComponent = lazy( () => import('./card'))
 

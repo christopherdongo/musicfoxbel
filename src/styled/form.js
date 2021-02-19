@@ -43,6 +43,7 @@ export const Input = styled.input`
     background-color:red;
     line-height: 22px;
     font-weight: 400;
+    font-size:${ fonts.Quicksand};
     display:flex;
     justify-content:center;
     align-items:center;
@@ -60,6 +61,7 @@ export const Divusers = styled.div`
   padding-top: 30px;
   @media ${device.tabletL} {
     justify-content: flex-end;
+    gap:1rem;
     width: 100%;
     padding-top: 0px;
   }
@@ -91,3 +93,22 @@ export const Imgsearch = styled.img`
     transform: scale(1.01);
   }
 `;
+/*cerrar session*/
+export const Logout = styled.span`
+    width: 32px;
+  height: 36px;
+  z-index: 1000;
+  cursor: pointer;
+  svg:hover{
+    transform:scale(1.02);
+  }
+` 
+
+/*mensaje de error para los formularios*/ 
+export const Error =styled.span`
+margin-top:0.5rem;
+ color:red;
+ font-size:14px;
+ font-weight:500;
+ font-family:${fonts.Quicksand}
+`

@@ -12,7 +12,7 @@ import {
   SPINNER_ADD,
   CLEAR_SOUND_ARRAY,
   ADD_REPRO_OK
-} from "../types/index";
+} from "../../types/index";
 
 // eslint-disable-next-line
 export default (state, action) => {

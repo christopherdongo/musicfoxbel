@@ -1,24 +1,10 @@
 import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMusic } from "@fortawesome/free-solid-svg-icons";
-import SoundContext from "../context/SoundContext";
-import styled from "styled-components";
-import { device } from "../mediaquery/device";
+import SoundContext from "../../context/sound/SoundContext";
+/*componente*/
+import {DivFloat} from '../../styled/float' 
 
-const DivFloat = styled.div`
-  display: block;
-  position: absolute;
-  cursor: pointer;
-  padding-top: 20px;
-  padding-left: ${props => props.val? '270px' : '30px'};
-  z-index: 2000;
-  transition: all 0.5s ease-in-out;
-  @media ${device.tabletL} {
-    display: none;
-    z-index: -9999;
-    transition: all 0.5s ease-in-out;
-  }
-`;
 
 const Float = () => {
   const soundContext = useContext(SoundContext);

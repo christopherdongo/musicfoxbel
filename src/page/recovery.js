@@ -1,12 +1,13 @@
 import React from 'react';
 
 
-const Music =()=>{
+const Recovery =()=>{
 
     return(
         <>
+         <h1>recovery</h1>
         </>
     )
 }
 
-export default Music;
+export default Recovery;

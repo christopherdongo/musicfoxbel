@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 
 /*import context*/
-import SoundContext from '../../context/SoundContext' 
+import SoundContext from '../../context/sound/SoundContext' 
 import Volumen from './volumen'
 
 /*components*/

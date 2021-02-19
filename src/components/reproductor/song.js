@@ -9,7 +9,7 @@ import {
 /*componentes*/
 
 import { Button, ButtonNext, ButtonPrev } from "../../styled/reproductor";
-import SoundContext from "../../context/SoundContext";
+import SoundContext from "../../context/sound/SoundContext";
 
 const Song = () => {
   const soundContext = useContext(SoundContext);
@@ -29,15 +29,17 @@ const Song = () => {
        }
   }, [volumen])
 
+
   const playSound = () => {
     audio.current.play();
     ADDrepro(true);
   };
   // pause audio sound
   const pauseSound = () => {
-    audio.current.pause();
-    ADDrepro(false);
+        audio.current.pause();
+        ADDrepro(false); 
   };
+
 
 
   return (

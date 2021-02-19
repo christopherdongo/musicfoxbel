@@ -1,17 +1,14 @@
 
 
 /*page*/ 
+{/*
 import Home from '../page/index';
 import Signin from '../page/signin';
 import Signup from '../page/signup'
-import Music from '../page/music';
 
 
-export const router = [
-    {
-        path:"/",
-        exact:false,
-        routes:[
+export const routes = [
+
             {
                 path:"/",
                 component:Home,
@@ -19,18 +16,16 @@ export const router = [
             },
             {
                 path:"/signin",
-                components: Signin,
+                component: Signin,
                 exact:true
             },
             {
                 path:"/signup",
-                components:Signup,
+                component:Signup,
                 exact:true
             }
-        ]
-
-    }
+ 
 ]
 
 
-export default routes
+export default routes */}

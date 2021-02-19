@@ -1,8 +1,7 @@
 
 import axios from 'axios'
 
-
-
+//api de deezer
 const clienteAxios = axios.create({
     baseURL: 'https://deezerdevs-deezer.p.rapidapi.com',
     method: "GET",
@@ -12,5 +11,6 @@ const clienteAxios = axios.create({
         "useQueryString": true
     }, 
 })
+
 
 export default clienteAxios

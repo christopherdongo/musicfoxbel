@@ -6,16 +6,27 @@ import {
   Divusers,
   User,
   Imguser,
-  Imgsearch
+  Imgsearch,
+  Logout
 } from "../../../styled/form";
-import user from "../../../assets/user.svg";
+import Avatar from "../../../assets/user.svg";
 import search from '../../../assets/search.svg'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+ faSignOutAlt
+} from "@fortawesome/free-solid-svg-icons";
 
 /*context*/
-import SoundContext from '../../../context/SoundContext'
+import SoundContext from '../../../context/sound/SoundContext'
+import UserContext from '../../../context/user/UserContext'
+//router
+import {useHistory} from 'react-router-dom'
 
 const Form = () => {
- //use context
+  //user context
+  const usercontext = useContext(UserContext);
+  const {user, token} = usercontext;
+  //sound context
  const soundContext = useContext(SoundContext);
  const {SearchSound, SpinnerAdd} = soundContext;
   //state
@@ -27,7 +38,18 @@ const HandlerSubmit=(e)=>{
   SpinnerAdd(!false)
 }
 
-  return (
+/*history*/
+const history = useHistory();
+
+/*cerrar sesion*/
+const LogoutSession =()=>{
+ console.log('cerrar sesion')
+ localStorage.removeItem('jwt');
+ localStorage.removeItem('user');
+  history.push('/signin')
+}
+
+return (
     <Container>
       <Divform onSubmit={HandlerSubmit}>
         <Input 
@@ -39,8 +61,16 @@ const HandlerSubmit=(e)=>{
         <Imgsearch src={search}  alt="search"/>
       </Divform>
       <Divusers>
-        <Imguser src={user} alt="user" />
-        <User>Fransico M.</User>
+        <Imguser src={Avatar} alt="user" />
+       <User>{user.name}</User> 
+        
+        <Logout>
+          <FontAwesomeIcon 
+            icon={faSignOutAlt}
+            size="2x"
+            onClick={LogoutSession}
+          />
+        </Logout>
       </Divusers>
     </Container>
   );

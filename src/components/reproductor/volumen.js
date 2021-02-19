@@ -5,7 +5,7 @@ import {
 
 } from "@fortawesome/free-solid-svg-icons";
 /*import context*/
-import SoundContext from '../../context/SoundContext' 
+import SoundContext from '../../context/sound/SoundContext' 
 /*componentes*/
 import {InputVol, IconVol} from '../../styled/reproductor'
 

@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import SoundContext from '../../context/SoundContext'
+import SoundContext from '../../context/sound/SoundContext'
 import styled  from 'styled-components'
 import {device} from '../../mediaquery/device'
 /*componente*/
@@ -19,6 +19,7 @@ position:absolute;
   transform:translateX(${props => props.val ? "0px" : "-330px" });
   transition: cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: all 0.5s ease-in-out;
+  border-top-right-radius:100px;
   @media ${device.tablet}{
     transition: all 0.5s ease-in-out;
   }
