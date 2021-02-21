@@ -1,7 +1,6 @@
 import React, {useContext} from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-/*context*/
 import UserContext from '../../../context/user/UserContext'; 
 import {Error} from '../../../styled/form';
 import {
@@ -20,10 +19,9 @@ const FormSignup = () => {
 
     /*context*/
     const usercontext = useContext(UserContext);
-    const {UserRegister} = usercontext;
+    const {UserRegister, message} = usercontext;
 
     /*password*/
-
 
   const formik = useFormik({
     initialValues: {
@@ -35,8 +33,8 @@ const FormSignup = () => {
     validationSchema: Yup.object({
       name: Yup.string().required("el nombre es obligatorio"),
       email: Yup.string()
-        .email("El email no es valido")
-        .required("el email es obligatorio"),
+        .email("El correo no es valido")
+        .required("el correo es obligatorio"),
       password: Yup.string().required("el password es ogligatorio"),
       repeatpassword: Yup.string().required('repita el password'),
     }),
@@ -50,12 +48,16 @@ const FormSignup = () => {
             console.log('password no son iguales')
         }
         UserRegister(data)
+
     }
   });
+
 
  
 
   return (
+
+    <>
     <Section>
       <Title>Registrarse</Title>
       <Formulario onSubmit={formik.handleSubmit}>
@@ -113,6 +115,7 @@ const FormSignup = () => {
           />
         </Formcontrol>
         <Submit type="submit" value="Registrar" />
+        {message ? <span>{message}</span> : null }
        <Containerlink>
          <Li>
         <Enlace 
@@ -122,7 +125,10 @@ const FormSignup = () => {
         </Li>
         </Containerlink>
       </Formulario>
+    
     </Section>
+
+    </>
   );
 };
 

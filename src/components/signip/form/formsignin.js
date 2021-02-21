@@ -18,10 +18,11 @@ import {
 /*context*/
 import UserContext from "../../../context/user/UserContext";
 
+
 const FormSignin = () => {
   /*context*/
   const userContext = useContext(UserContext);
-  const { FunctionLogin, user, authenticate } = userContext;
+  const { FunctionLogin, user, authenticate,message} = userContext;
 
   //histori
   const history = useHistory();
@@ -86,6 +87,9 @@ const FormSignin = () => {
         </Formcontrol>
 
         <Submit type="submit" value="Iniciar Sesion" />
+        {
+          message? <span>{message}</span> : null
+        }
         <Containerlink>
           <Li>
             <Enlace to="/signup">Registrarse</Enlace>
@@ -97,6 +101,7 @@ const FormSignin = () => {
           </Li>
         </Containerlink>
       </Formulario>
+  
     </Section>
   );
 };

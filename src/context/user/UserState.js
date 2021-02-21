@@ -1,98 +1,103 @@
-import React, {useReducer} from 'react';
+import React, { useReducer } from "react";
 /*context*/
-import UserContext from './UserContext'
+import UserContext from "./UserContext";
 /*reducer*/
-import UserReducer from './UserReducer' 
+import UserReducer from "./UserReducer";
 /*types*/
-import {USER_LOGIN_SUCCESSFULL,USER_LOGIN_ERROR, USER_CREATE_SUCCESSFULL, USER_CREATE_ERROR, USER_LOGOUT} from '../../types/index' 
+import {
+  USER_LOGIN_SUCCESSFULLY,
+  USER_LOGIN_ERROR,
+  USER_CREATE_SUCCESSFULL,
+  USER_CREATE_ERROR,
+  USER_LOGOUT,
+  CLEAN_ALERT,
+} from "../../types/index";
+/**/
+import ClienteAxios2 from "../../apis/service";
+/*message*/
 
-import ClienteAxios2 from '../../apis/service'
+const initial_state = {
+  token: localStorage.getItem("jwt"),
+  user: null,
+  favorite: null,
+  message: null,
+  loading: true,
+  authenticate: null,
+};
 
+export const GlobalUserState = ({ children }) => {
+  const [state, dispatch] = useReducer(UserReducer, initial_state);
 
-const initial_state={
-    user:null || JSON.parse(localStorage.getItem('user')),
-    favorite:null,
-    message:null,
-    loading:true,
-    authenticate:null
-}
-
-
-export const GlobalUserState = ({children})=>{
-
-    const [state, dispatch] = useReducer(UserReducer, initial_state)
-
-    /*function para iniciar sesscion*/
-    const FunctionLogin = async (data)=>{
-
-        const params = {
-            headers:{
-                "Content-Type":"application/json"
-            }
-        }
-        try{
-            const result = await ClienteAxios2.post('/api/signin', data, params)
-            dispatch({
-                type:USER_LOGIN_SUCCESSFULL,
-                payload:result.data
-            })
-        }catch(err){
-            dispatch({
-                type:USER_LOGIN_ERROR,
-                payload:err
-            })
-        }
+  /*function para iniciar sesscion*/
+  const FunctionLogin = async (data) => {
+    try {
+      const result = await ClienteAxios2.post("/api/signin", data);
+      console.log(result);
+      dispatch({
+        type: USER_LOGIN_SUCCESSFULLY,
+        payload: result.data,
+      });
+    } catch (err) {
+      dispatch({
+        type: USER_LOGIN_ERROR,
+        payload: err.response.data.message,
+      });
     }
- /*registrar*/
-    const UserRegister =async (data)=>{
-        
-        try{
-            const result = await ClienteAxios2.post('/api/signup', data)
-            console.log(result)
+    //LIMPIAR MENSAJE
+    setTimeout(() => {
+      dispatch({
+        type: CLEAN_ALERT,
+      });
+    }, 3000);
+  };
+  /*authenticated*/
 
-            dispatch({
-                type:USER_CREATE_SUCCESSFULL,
-                payload:result.data.message
-            })
-        }catch(err){
-            console.log(err.request)
-            dispatch({
-                type:USER_CREATE_ERROR,
-                payload:err.request.response
-            })
-        }
+  /*registrar*/
+  const UserRegister = async (data) => {
+    try {
+      const result = await ClienteAxios2.post("/api/signup", data);
+      dispatch({
+        type: USER_CREATE_SUCCESSFULL,
+        payload: result.data.message,
+      });
+    } catch (err) {
+      dispatch({
+        type: USER_CREATE_ERROR,
+        payload: err.response.data.message,
+      });
     }
+    //LIMPIAR MENSAJE
+    setTimeout(() => {
+      dispatch({
+        type: CLEAN_ALERT,
+      });
+    }, 3000);
+  };
 
-    const LogoutUser =()=>{
-        dispatch({
-            type:USER_LOGOUT
-        })
-    }
+  const LogoutUser = () => {
+    dispatch({
+      type: USER_LOGOUT,
+    });
+  };
 
-    return(
-        <UserContext.Provider value={{
-            /*state*/
-            user:state.user,
-            favorite:state.favorite,
-            message:state.message,
-            loading:state.loading,
-            authenticate:state.authenticate,
-             /*function*/
-             FunctionLogin,
-             UserRegister,
-             LogoutUser
-        }}>
-           {children}
-        </UserContext.Provider>
-    )
-}
-
-
-
-
-
-
-
-
-
-
+  return (
+    <UserContext.Provider
+      value={{
+        /*state*/
+        user: state.user,
+        favorite: state.favorite,
+        message: state.message,
+        loading: state.loading,
+        authenticate: state.authenticate,
+        Code: state.Code,
+        token: state.token,
+        /*function*/
+        FunctionLogin,
+        UserRegister,
+        LogoutUser,
+      }}
+    >
+      {children}
+    </UserContext.Provider>
+  );
+};
