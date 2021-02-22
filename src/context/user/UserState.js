@@ -18,11 +18,12 @@ import ClienteAxios2 from "../../apis/service";
 
 const initial_state = {
   token: localStorage.getItem("jwt"),
-  user: null,
+  user: JSON.parse(localStorage.getItem('user')),
   favorite: null,
   message: null,
   loading: true,
   authenticate: null,
+  errorCode:null
 };
 
 export const GlobalUserState = ({ children }) => {
@@ -32,15 +33,17 @@ export const GlobalUserState = ({ children }) => {
   const FunctionLogin = async (data) => {
     try {
       const result = await ClienteAxios2.post("/api/signin", data);
-      console.log(result);
       dispatch({
         type: USER_LOGIN_SUCCESSFULLY,
-        payload: result.data,
+        payload: result.data, 
       });
     } catch (err) {
       dispatch({
         type: USER_LOGIN_ERROR,
-        payload: err.response.data.message,
+        payload: {
+          message:err.response.data.message,
+          code: err.response.status
+        }
       });
     }
     //LIMPIAR MENSAJE
@@ -58,12 +61,14 @@ export const GlobalUserState = ({ children }) => {
       const result = await ClienteAxios2.post("/api/signup", data);
       dispatch({
         type: USER_CREATE_SUCCESSFULL,
-        payload: result.data.message,
+        payload: {message:result.data, code:result.data.message}
       });
     } catch (err) {
       dispatch({
         type: USER_CREATE_ERROR,
-        payload: err.response.data.message,
+        payload: {
+          message: err.response.data.message, 
+          code: err.response.status}
       });
     }
     //LIMPIAR MENSAJE
@@ -89,7 +94,7 @@ export const GlobalUserState = ({ children }) => {
         message: state.message,
         loading: state.loading,
         authenticate: state.authenticate,
-        Code: state.Code,
+        errorCode: state.errorCode,
         token: state.token,
         /*function*/
         FunctionLogin,

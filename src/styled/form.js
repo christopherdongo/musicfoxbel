@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import { fonts } from "../styled/fonts";
 import { device } from "../mediaquery/device";
 
@@ -111,4 +111,34 @@ margin-top:0.5rem;
  font-size:14px;
  font-weight:500;
  font-family:${fonts.Quicksand}
+`
+export const Messageerror = styled.span`
+padding:0.5rem;
+font-family:${fonts.Quicksand};
+font-size:14px;
+font-weight:700;
+text-align:center;
+color:white;
+${ ({code}) => {
+  switch (code){
+    case 200 : 
+    return css`
+     background-color: green;
+    `
+    case 201 :
+      return css`
+     background-color: green;
+    `
+    case 400:
+      return css`
+     background-color: red;
+    `
+    case 500 :
+      return css`
+     background-color: green;
+    `
+    default:
+  }
+}}
+ 
 `

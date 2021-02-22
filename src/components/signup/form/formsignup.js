@@ -14,12 +14,12 @@ import {
   Submit,
   Li
 } from "../../../styled/formregister";
-
+import {Messageerror} from '../../../styled/form'
 const FormSignup = () => {
 
     /*context*/
     const usercontext = useContext(UserContext);
-    const {UserRegister, message} = usercontext;
+    const {UserRegister, message, errorCode} = usercontext;
 
     /*password*/
 
@@ -115,7 +115,9 @@ const FormSignup = () => {
           />
         </Formcontrol>
         <Submit type="submit" value="Registrar" />
-        {message ? <span>{message}</span> : null }
+        {
+          message? <Messageerror code={errorCode}>{message}</Messageerror> : null
+        }
        <Containerlink>
          <Li>
         <Enlace 

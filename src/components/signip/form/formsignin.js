@@ -15,6 +15,7 @@ import {
   Enlace,
   Li,
 } from "../../../styled/formregister";
+import {Messageerror} from '../../../styled/form'
 /*context*/
 import UserContext from "../../../context/user/UserContext";
 
@@ -22,7 +23,7 @@ import UserContext from "../../../context/user/UserContext";
 const FormSignin = () => {
   /*context*/
   const userContext = useContext(UserContext);
-  const { FunctionLogin, user, authenticate,message} = userContext;
+  const { FunctionLogin, user, authenticate,message, errorCode} = userContext;
 
   //histori
   const history = useHistory();
@@ -88,7 +89,7 @@ const FormSignin = () => {
 
         <Submit type="submit" value="Iniciar Sesion" />
         {
-          message? <span>{message}</span> : null
+          message? <Messageerror code={errorCode}>{message}</Messageerror> : null
         }
         <Containerlink>
           <Li>

@@ -29,7 +29,8 @@ export default (state, action) => {
     case USER_CREATE_ERROR:
       return {
         ...state,
-        message: action.payload,
+        message: action.payload.message,
+        errorCode: action.payload.code
       };
     case USER_LOGOUT:
       localStorage.removeItem("jwt");
@@ -43,7 +44,8 @@ export default (state, action) => {
     case CLEAN_ALERT:
       return{
         ...state,
-        message:null
+        message:null,
+        errorCode:null
       }
 
     default:
