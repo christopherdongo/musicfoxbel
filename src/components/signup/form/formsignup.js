@@ -1,8 +1,7 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import UserContext from '../../../context/user/UserContext'; 
-import {Error} from '../../../styled/form';
 import {
   Section,
   Formulario,
@@ -14,15 +13,16 @@ import {
   Submit,
   Li
 } from "../../../styled/formregister";
-import {Messageerror} from '../../../styled/form'
+import {Messageerror, Error} from '../../../styled/form'
 const FormSignup = () => {
 
     /*context*/
     const usercontext = useContext(UserContext);
     const {UserRegister, message, errorCode} = usercontext;
 
-    /*password*/
+    const [error, setError] = useState(false)
 
+    /*password*/
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -38,18 +38,27 @@ const FormSignup = () => {
       password: Yup.string().required("el password es ogligatorio"),
       repeatpassword: Yup.string().required('repita el password'),
     }),
-    onSubmit: (values) =>{
+    onSubmit: (values, actions) =>{
         const data = {
             name:values.name,
             email:values.email,
             password:values.password
         }
         if(values.password !== values.repeatpassword){
-            console.log('password no son iguales')
+           setError(true)
+            setTimeout( ()=>{
+              setError(false)
+            }, 2000)
+        }else{
+        UserRegister(data);
+        if(errorCode === 201){
+          actions.resetForm();
         }
-        UserRegister(data)
+        setError(false)
 
-    }
+      }
+    },
+  
   });
 
 
@@ -117,6 +126,9 @@ const FormSignup = () => {
         <Submit type="submit" value="Registrar" />
         {
           message? <Messageerror code={errorCode}>{message}</Messageerror> : null
+        }
+        {
+           error? <Error>La contraseñas no son iguales</Error> : null
         }
        <Containerlink>
          <Li>

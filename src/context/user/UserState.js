@@ -59,16 +59,21 @@ export const GlobalUserState = ({ children }) => {
   const UserRegister = async (data) => {
     try {
       const result = await ClienteAxios2.post("/api/signup", data);
+      console.log(result)
       dispatch({
         type: USER_CREATE_SUCCESSFULL,
-        payload: {message:result.data, code:result.data.message}
+        payload: {
+          message:result.data.message,
+          code:result.status
+        }
       });
     } catch (err) {
       dispatch({
         type: USER_CREATE_ERROR,
         payload: {
           message: err.response.data.message, 
-          code: err.response.status}
+          code: err.response.status
+        }
       });
     }
     //LIMPIAR MENSAJE

@@ -13,7 +13,8 @@ export default (state, action) => {
     case USER_CREATE_SUCCESSFULL:
       return {
         ...state,
-        message: action.payload,
+        message: action.payload.message,
+        errorCode: action.payload.code
       };
     case USER_LOGIN_SUCCESSFULLY:
       localStorage.setItem("jwt", action.payload.token);

@@ -112,6 +112,7 @@ margin-top:0.5rem;
  font-weight:500;
  font-family:${fonts.Quicksand}
 `
+
 export const Messageerror = styled.span`
 padding:0.5rem;
 font-family:${fonts.Quicksand};
