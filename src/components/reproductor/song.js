@@ -13,7 +13,7 @@ import SoundContext from "../../context/sound/SoundContext";
 
 const Song = () => {
   const soundContext = useContext(SoundContext);
-  const { play, volumen, repro, ADDrepro } = soundContext;
+  const { play, volumen, repro, ADDrepro, muted } = soundContext;
 
   const audio = useRef("audio_tag");
 
@@ -28,6 +28,14 @@ const Song = () => {
         audio.current.volume=volumen
        }
   }, [volumen])
+
+  useEffect(() => {
+    if(muted === true){
+      audio.current.muted=muted;
+    }else if(muted === false){
+      audio.current.muted = muted
+    }
+  },[muted])
 
 
   const playSound = () => {

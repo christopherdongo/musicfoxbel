@@ -1,9 +1,9 @@
 import React from 'react';
-import {Route, Redirect } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 //import UserContext from '../context/user/UserContext'
 
 
-const RoutePrivate =({component:Component , ...props})=>{
+/* const RoutePrivate =({component:Component , ...props})=>{
 
     //usestate
     const token = localStorage.getItem('jwt');
@@ -16,13 +16,27 @@ const RoutePrivate =({component:Component , ...props})=>{
             <Component {...props} />
         ) :
         (
-            <Redirect to="/signin" />
+            redirect("/signin")
         ) 
     }
         
      />
         
     )
+} */
+
+
+const RoutePrivate = ({children})=>{
+    const token = localStorage.getItem('jwt');
+
+    if(!token) {
+        return <Navigate to="/signin" />
+    }
+
+    return children
+
 }
 
+
 export default RoutePrivate
+

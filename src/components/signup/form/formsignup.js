@@ -61,11 +61,7 @@ const FormSignup = () => {
   
   });
 
-
- 
-
   return (
-
     <>
     <Section>
       <Title>Registrarse</Title>
@@ -133,7 +129,7 @@ const FormSignup = () => {
        <Containerlink>
          <Li>
         <Enlace 
-        to="signin"
+        to="/signin"
         pading={formik.touched.repeatpassword && formik.errors.repeatpassword }
         >Iniciar sesion</Enlace>
         </Li>

@@ -17,7 +17,9 @@ import {
   TOOGLE_ADD,
   SPINNER_ADD,
   CLEAR_SOUND_ARRAY,
-  ADD_REPRO_OK
+  ADD_REPRO_OK,
+  SOUND_MUTED,
+  SOUND_UNMUTED
 } from "../../types/index";
 
 import clienteAxios from "../../apis/apis";
@@ -32,7 +34,8 @@ const initial_state = {
   volumen: null,
   playing: false,
   toogle:false,
-  repro:false
+  repro:false,
+  muted:false,
 };
 export const GlobalSoundState = ({ children }) => {
   const [state, dispatch] = useReducer(SoundReducer, initial_state);
@@ -127,6 +130,20 @@ export const GlobalSoundState = ({ children }) => {
      })
   } 
 
+  const soundMuted = () => {
+    dispatch({
+      type:SOUND_MUTED,
+    })
+  }
+
+  const soundUnMuted = () => {
+    dispatch({
+      type:SOUND_UNMUTED,
+    })
+  }
+
+
+
   return (
     <SoundContext.Provider
       value={{
@@ -141,6 +158,7 @@ export const GlobalSoundState = ({ children }) => {
         playing: state.playing,
         toogle:state.toogle,
         repro:state.repro,
+        muted:state.muted,
         //funciones
         AddCoverSound,
         SearchSound,
@@ -150,7 +168,9 @@ export const GlobalSoundState = ({ children }) => {
         ToogleAdd,
         SpinnerAdd,
         ClearSound,
-        ADDrepro
+        ADDrepro,
+        soundMuted,
+        soundUnMuted
 
       }}
     >

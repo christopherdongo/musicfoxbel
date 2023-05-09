@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Error } from "../../../styled/form";
 /*componentes*/
 import {
@@ -26,7 +26,7 @@ const FormSignin = () => {
   const { FunctionLogin, user, authenticate,message, errorCode} = userContext;
 
   //histori
-  const history = useHistory();
+  const history = useNavigate();
 
   //state de formik
   const formik = useFormik({
@@ -49,7 +49,7 @@ const FormSignin = () => {
   //useEfect
   useEffect(() => {
     if (authenticate) {
-      history.push("/");
+      history("/");
     }
   }, [authenticate, user, history]);
 

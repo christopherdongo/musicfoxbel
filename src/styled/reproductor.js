@@ -123,6 +123,10 @@ export const InputVol = styled.input`
   }
 `;
 export const IconVol = styled.span`
+flex:flex;
   padding-right: 24px;
   cursor: pointer;
+  width: 50px;
+  justify-content: center;
+  align-items: center;
 `;

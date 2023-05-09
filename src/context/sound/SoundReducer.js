@@ -11,7 +11,9 @@ import {
   TOOGLE_ADD,
   SPINNER_ADD,
   CLEAR_SOUND_ARRAY,
-  ADD_REPRO_OK
+  ADD_REPRO_OK,
+  SOUND_MUTED,
+  SOUND_UNMUTED,
 } from "../../types/index";
 
 // eslint-disable-next-line
@@ -51,7 +53,8 @@ export default (state, action) => {
         volumen: null,
         playing: false,
         toogle:false,
-        repro:false
+        repro:false,
+        muted:false,
       };
     case DISPLAY_REPRODUCTOR_SUCCESSULL:
       return {
@@ -85,6 +88,16 @@ export default (state, action) => {
         ...state,
         repro:action.payload
       }
+    case SOUND_MUTED:
+      return {
+        ...state,
+        muted: true,
+      }
+      case SOUND_UNMUTED:
+        return {
+          ...state,
+          muted: false,
+        }
     default:
       return state;
   }

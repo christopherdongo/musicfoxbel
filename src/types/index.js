@@ -30,4 +30,7 @@ export const USER_LOGOUT = 'USER_LOGOUT';
 
 export const CLEAN_ALERT = 'CLEAN_ALERT';
 
+export const SOUND_MUTED = 'SOUND_MUTED';
+export const SOUND_UNMUTED = 'SOUND_UNMUTED';
+
 

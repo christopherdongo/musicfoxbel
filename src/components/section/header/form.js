@@ -20,7 +20,7 @@ import {
 import SoundContext from '../../../context/sound/SoundContext'
 import UserContext from '../../../context/user/UserContext'
 /*router*/
-import {useHistory} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 const Form = () => {
   //user context
   const usercontext = useContext(UserContext);
@@ -29,7 +29,7 @@ const Form = () => {
  const soundContext = useContext(SoundContext);
  const {SearchSound, SpinnerAdd,ClearSound } = soundContext;
 
- const history = useHistory();
+ const navigate = useNavigate();
   //state
   const [inputSearch, setInputSearch] = useState();
 
@@ -38,11 +38,12 @@ const HandlerSubmit=(e)=>{
   SearchSound(inputSearch,false);
   SpinnerAdd(!false)
 }
+
 /*cerrar sesion*/
 const LogoutSession =()=>{
   LogoutUser();
   ClearSound();
-  history.push('/signin')
+  navigate('/signin')
 }
 
 return (
