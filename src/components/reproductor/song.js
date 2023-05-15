@@ -18,7 +18,7 @@ const Song = () => {
   const audio = useRef("audio_tag");
 
   useEffect( ()=>{
-    if(play){
+    if(play.length !=0){
       audio.current.play();
     }
 }, [play])
@@ -36,6 +36,13 @@ const Song = () => {
       audio.current.muted = muted
     }
   },[muted])
+
+  useEffect(() => {
+    if(repro===false){
+      ADDrepro(false)
+    }
+
+  },[repro])
 
 
   const playSound = () => {

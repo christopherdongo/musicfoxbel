@@ -1,12 +1,13 @@
 
 import axios from 'axios'
 
+
 //api de deezer
 const clienteAxios = axios.create({
-    baseURL: 'https://deezerdevs-deezer.p.rapidapi.com',
+    baseURL: `${process.env.REACT_APP_URL_API_DEZER}`,
     method: "GET",
     headers: {
-        "x-rapidapi-key": "889d084971mshcbf6c1a399b2097p1ed71ejsn3d5a9d16c2a8",
+        "x-rapidapi-key": `${process.env.REACT_APP_API_RAPIDAPI_KEY}`,
         "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
         "useQueryString": true
     }, 
